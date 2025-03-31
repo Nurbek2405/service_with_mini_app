@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    ports:
+      - "5000:5000"  # Пробрасываем порт Flask наружу
+    environment:
+      - DB_HOST=db  # Имя сервиса PostgreSQL в Docker Compose
+      - DB_NAME=service_bot_db
+      - DB_USER=postgres
+      - DB_PASSWORD=your_password  # Укажите ваш пароль
+      - DB_PORT=5432
+    depends_on:
+      - db
+    volumes:
+      - .:/app  # Монтируем код для разработки
+
+  db:
+    image: postgres:16  # Официальный образ PostgreSQL
+    environment:
+      - POSTGRES_DB=service_bot_db
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=your_password  # Укажите тот же пароль, что выше
+    ports:
+      - "5432:5432"  # Пробрасываем порт PostgreSQL наружу (опционально)
+    volumes:
+      - pgdata:/var/lib/postgresql/data  # Сохраняем данные базы между перезапусками
+
+volumes:
+  pgdata:

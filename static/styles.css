@@ -1,0 +1,42 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--tg-theme-bg-color, #ffffff);
+    color: var(--tg-theme-text-color, #000000);
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+    color: var(--tg-theme-hint-color, #888888);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    font-weight: bold;
+}
+
+input, select {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid var(--tg-theme-hint-color, #cccccc);
+    border-radius: 5px;
+    background-color: var(--tg-theme-secondary-bg-color, #f0f0f0);
+    color: var(--tg-theme-text-color, #000000);
+}
+
+#message {
+    margin-top: 20px;
+    text-align: center;
+    color: var(--tg-theme-link-color, #007bff);
+}
