@@ -1,9 +1,8 @@
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import CommandHandler, ConversationHandler, MessageHandler, ContextTypes, filters
 from models.entities import User
-from app import MINI_APP_URL
+from config import MINI_APP_URL  # Импорт из config
 
-# Состояния
 ROLE, CITY, CATEGORY = range(3)
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
